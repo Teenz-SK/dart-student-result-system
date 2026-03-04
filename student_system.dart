@@ -58,7 +58,8 @@ void main(){
     print("\n===== Student Result System =====");
     print("1. Show Student List");
     print("2. Search Student");
-    print("3. Exit");
+    print("3. Sort Students by Marks");
+    print("4. Exit");
 
     print("Enter your choice:");
 
@@ -88,9 +89,7 @@ void main(){
             searchName.toLowerCase()){
 
           print("\nStudent Found:\n");
-
           student.displayStudent();
-
           found = true;
           break;
 
@@ -105,6 +104,19 @@ void main(){
     }
 
     else if(choice == 3){
+
+      // Sorting by marks (Descending Order)n
+      students.sort((a, b) => b.marks.compareTo(a.marks));
+
+      print("\n===== Students Sorted by Marks (High to Low) =====\n");
+
+      for(var student in students){
+        student.displayStudent();
+      }
+
+    }
+
+    else if(choice == 4){
 
       print("\nProgram Ended");
       break;
