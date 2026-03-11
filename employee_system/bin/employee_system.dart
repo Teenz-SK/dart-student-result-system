@@ -2,37 +2,36 @@ class Employee {
 
   String name;
   int id;
-  String department;
   double salary;
 
-  Employee(this.name, this.id, this.department, this.salary);
+  Employee(this.name, this.id, this.salary);
 
-  void displayEmployee(){
+  double calculateBonus() {
+
+    return salary * 0.10;
+
+  }
+
+  void displayInfo() {
 
     print("Employee Name: $name");
     print("Employee ID: $id");
-    print("Department: $department");
     print("Salary: ₹$salary");
-    print("-----------------------");
+    print("Bonus: ₹${calculateBonus()}");
+    print("---------------------------");
 
   }
 
 }
 
-void main(){
+void main() {
 
-  List<Employee> employees = [
+  Employee emp1 = Employee("Sanju", 101, 30000);
+  Employee emp2 = Employee("Rahul", 102, 25000);
+  Employee emp3 = Employee("Amit", 103, 40000);
 
-    Employee("Sanju", 101, "IT", 25000),
-    Employee("Rahul", 102, "HR", 20000),
-    Employee("Amit", 103, "Finance", 30000),
-
-  ];
-
-  for(var employee in employees){
-
-    employee.displayEmployee();
-
-  }
+  emp1.displayInfo();
+  emp2.displayInfo();
+  emp3.displayInfo();
 
 }
